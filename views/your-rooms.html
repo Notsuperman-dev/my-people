@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application - Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+    <div class="container" id="profile-page">
+        <h2>Profile</h2>
+        <form id="profile-form">
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" readonly>
+            </div>
+            <div>
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" required></textarea>
+            </div>
+            <div>
+                <label for="avatar">Avatar URL:</label>
+                <input type="text" id="avatar" name="avatar">
+            </div>
+            <button type="submit">Update Profile</button>
+        </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

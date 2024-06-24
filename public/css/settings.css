@@ -1,0 +1,30 @@
+#settings-page {
+    text-align: center;
+}
+
+#settings-page h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#settings-page input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#settings-page button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#settings-page button:hover {
+    background-color: #0056b3;
+}

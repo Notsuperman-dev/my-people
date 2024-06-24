@@ -1,0 +1,57 @@
+#signup-page {
+    text-align: center;
+}
+
+#signup-page h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#signup-page input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#signup-page button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#signup-page button:hover {
+    background-color: #0056b3;
+}
+/* Add new styles for icons and improved color scheme */
+ul li {
+    cursor: pointer;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+}
+
+ul li:hover {
+    background-color: #0056b3;
+}
+
+ul li .icon {
+    margin-right: 10px;
+}
+
+ul li.online {
+    background-color: green;
+}
+
+ul li.offline {
+    background-color: red;
+}

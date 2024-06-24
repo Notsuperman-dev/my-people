@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Application - Main Menu</title>
+    <link rel="stylesheet" href="css/main_menu.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Main Menu</h2>
+        <input type="text" id="search-bar" placeholder="Search...">
+        <ul id="search-results">
+            <!-- Search results will be populated here -->
+        </ul>
+        <ul>
+            <li><a href="create_room.html">Create Room</a></li>
+            <li a href="create_room.html">Create Room</li>
+            <li onclick="showJoinRoom()">Join Room</li>
+            <li onclick="showCreateGroup()">Create Group</li>
+            <li onclick="showJoinGroup()">Join Group</li>
+            <li onclick="showWorldChat()">World Chat</li>
+            <li onclick="showTrendingRooms()">Trending Rooms</li>
+            <li onclick="showDirectMessages()">Direct Messages</li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a href="chat.html">chat</a></li>
+            <li onclick="logout()">Log Out</li>
+        </ul>
+        <ul id="user-list">
+            <!-- User list will be populated here -->
+        </ul>
+        <p id="typing-indicator"></p> <!-- Typing indicator element -->
+    </div>
+    <div id="notification-area"></div>
+    <form id="create-group-form">
+        <input type="text" name="groupName" placeholder="Group Name">
+        <button type="submit">Create Group</button>
+    </form>
+    <ul id="group-list">
+        <!-- Group list will be populated here -->
+    </ul>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/main_menu.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

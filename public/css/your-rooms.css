@@ -1,0 +1,30 @@
+#profile-page {
+    text-align: center;
+}
+
+#profile-page h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#profile-page input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#profile-page button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#profile-page button:hover {
+    background-color: #0056b3;
+}
