@@ -1,7 +1,9 @@
 const express = require('express');
-const path = require('path');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const path = require('path');
+const sqlite3 = require('sqlite3').verbose();
+const userService = require('./services/user-service');
 const authMiddleware = require('./middleware/auth');
 
 const app = express();
@@ -13,7 +15,6 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }));
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
@@ -25,7 +26,15 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login', (req, res) => {
-    // Handle login logic
+    const { username, password } = req.body;
+    userService.getUser(username, (err, user) => {
+        if (err || !user || user.password !== password) {
+            res.redirect('/login');
+        } else {
+            req.session.user = user;
+            res.redirect('/main-menu');
+        }
+    });
 });
 
 app.get('/signup', (req, res) => {
@@ -33,7 +42,15 @@ app.get('/signup', (req, res) => {
 });
 
 app.post('/signup', (req, res) => {
-    // Handle signup logic
+    const { username, password } = req.body;
+    userService.createUser(username, password, (err, user) => {
+        if (err) {
+            res.redirect('/signup');
+        } else {
+            req.session.user = user;
+            res.redirect('/main-menu');
+        }
+    });
 });
 
 app.use(authMiddleware);
