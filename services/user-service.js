@@ -1,6 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./database.sqlite');
 
+// Create users table if it doesn't exist
 db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS users (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -11,11 +12,15 @@ db.serialize(() => {
 
 module.exports = {
     createUser: (username, password, callback) => {
-        const stmt = db.prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-        stmt.run(username, password, callback);
-        stmt.finalize();
+        const query = 'INSERT INTO users (username, password) VALUES (?, ?)';
+        db.run(query, [username, password], function(err) {
+            callback(err, { id: this.lastID, username, password });
+        });
     },
     getUser: (username, callback) => {
-        db.get("SELECT * FROM users WHERE username = ?", [username], callback);
+        const query = 'SELECT * FROM users WHERE username = ?';
+        db.get(query, [username], (err, row) => {
+            callback(err, row);
+        });
     }
 };
