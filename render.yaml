@@ -1,5 +1,0 @@
-databases:
-  - name: my-people-db
-    engine: sqlite
-    ip_whitelist: []
-    instance_type: standard
